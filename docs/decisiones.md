@@ -12,6 +12,7 @@
 - Se mantendrá una separación básica entre interfaz, lógica de negocio y acceso a datos.
 - El identificador Android será `com.juanpabloniguez.oldworldcompanion`.
 - El proyecto base se generó con Flutter estable 3.47.8 en `C:\src\flutter`; el SDK de Android está disponible para las pruebas.
+- Se usará `sqflite` para acceder a SQLite desde Flutter.
 
 ## Pendientes
 

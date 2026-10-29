@@ -41,7 +41,9 @@ El MVP funcionará sin conexión y guardará los datos en el dispositivo.
 - Se ha resuelto según el diseño la contradicción sobre las partidas guardadas: forman parte del MVP.
 - `AGENTS.md` y `docs/decisiones.md` creados.
 - Proyecto base Flutter creado con el identificador `com.juanpabloniguez.oldworldcompanion`.
-- `flutter analyze` y la prueba inicial pasan correctamente.
+- `flutter analyze`, las pruebas y `flutter build apk --debug` pasan correctamente.
+- Dependencia `sqflite` añadida y clase inicial de acceso a SQLite creada.
+- El hot reload no se pudo ejecutar porque no había ninguna aplicación Flutter activa en VS Code.
 - Las decisiones pendientes están registradas en `docs/decisiones.md`.
 
 ## Reglas de trabajo
