@@ -13,6 +13,8 @@
 - El identificador Android será `com.juanpabloniguez.oldworldcompanion`.
 - El proyecto base se generó con Flutter estable 3.47.8 en `C:\src\flutter`; el SDK de Android está disponible para las pruebas.
 - Se usará `sqflite` para acceder a SQLite desde Flutter.
+- La primera estructura de interfaz seguirá `Pantallas.md`: menú con seis destinos, navegación interior con retorno al menú y cinco apariencias (`Reikland`, `Middenland`, `Stirland`, `Nuln` y `Talabecland`).
+- La implementación visual inicial usará los colores semánticos definidos en `Pantallas.md`; Reikland será la apariencia inicial y el idioma disponible será español.
 
 ## Pendientes
 
@@ -28,3 +30,4 @@
 - No se han fijado versiones de Flutter, Dart, Android SDK ni versión mínima de Android.
 - No se ha concretado el formato de la fecha de las partidas ni si se podrá editar o eliminar información guardada.
 - No se han definido las licencias concretas de las dependencias ni el contenido propio que se utilizará para los datos de referencia.
+- La lógica completa de calculadoras, persistencia de preferencias, formularios de magos y recordatorios, y el bloqueo del modo Juego se incorporará en pasos posteriores.

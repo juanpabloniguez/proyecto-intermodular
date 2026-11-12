@@ -44,6 +44,8 @@ El MVP funcionará sin conexión y guardará los datos en el dispositivo.
 - `flutter analyze`, las pruebas y `flutter build apk --debug` pasan correctamente.
 - Dependencia `sqflite` añadida y clase inicial de acceso a SQLite creada.
 - El hot reload no se pudo ejecutar porque no había ninguna aplicación Flutter activa en VS Code.
+- Se ha aplicado la primera estructura de `Pantallas.md`: menú principal, seis destinos navegables, pantallas base y cinco apariencias visuales.
+- `flutter analyze` y `flutter test` pasan tras sustituir la prueba del contador por pruebas del menú y la navegación inicial.
 - Las decisiones pendientes están registradas en `docs/decisiones.md`.
 
 ## Reglas de trabajo

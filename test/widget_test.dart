@@ -1,30 +1,37 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:old_world_companion/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('muestra las seis herramientas del menú', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const OldWorldCompanionApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.text('Cuaderno de batalla'), findsOneWidget);
+    expect(find.text('Resultados de Combate'), findsOneWidget);
+    expect(find.text('Puntos de Victoria'), findsOneWidget);
+    expect(find.text('Impactar/Herir'), findsOneWidget);
+    expect(find.text('Magos'), findsOneWidget);
+    expect(find.text('Fases'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    await tester.drag(find.byType(Scrollable), const Offset(0, -500));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('Preferencias'), findsOneWidget);
+  });
+
+  testWidgets('el menú abre la pantalla de combate', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const OldWorldCompanionApp());
+
+    await tester.tap(find.text('Resultados de Combate'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Calcular Resultados de Combate'), findsOneWidget);
+    expect(find.text('Atacante'), findsOneWidget);
+    expect(find.text('Defensor'), findsOneWidget);
   });
 }
