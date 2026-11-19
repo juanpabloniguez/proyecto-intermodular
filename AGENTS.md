@@ -47,6 +47,7 @@ El MVP funcionará sin conexión y guardará los datos en el dispositivo.
 - Se ha aplicado la primera estructura de `Pantallas.md`: menú principal, seis destinos navegables, pantallas base y cinco apariencias visuales.
 - `flutter analyze` y `flutter test` pasan tras sustituir la prueba del contador por pruebas del menú y la navegación inicial.
 - Las decisiones pendientes están registradas en `docs/decisiones.md`.
+- La interfaz está organizada en `lib/screens/`, `lib/theme/`, `lib/widgets/` y `lib/app.dart`; `lib/main.dart` contiene únicamente el arranque de Flutter.
 
 ## Reglas de trabajo
 

@@ -15,6 +15,7 @@
 - Se usará `sqflite` para acceder a SQLite desde Flutter.
 - La primera estructura de interfaz seguirá `Pantallas.md`: menú con seis destinos, navegación interior con retorno al menú y cinco apariencias (`Reikland`, `Middenland`, `Stirland`, `Nuln` y `Talabecland`).
 - La implementación visual inicial usará los colores semánticos definidos en `Pantallas.md`; Reikland será la apariencia inicial y el idioma disponible será español.
+- La interfaz se organizará en `lib/screens/` para las pantallas, `lib/theme/` para apariencias y estilos, `lib/widgets/` para componentes reutilizables y `lib/app.dart` para la configuración raíz de Flutter; `lib/main.dart` contendrá únicamente el arranque de la aplicación.
 
 ## Pendientes
 
