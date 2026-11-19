@@ -51,6 +51,10 @@ El MVP funcionará sin conexión y guardará los datos en el dispositivo.
 - La pantalla `rolls_screen` calcula y muestra las tiradas objetivo de Impactar y Herir, incluyendo Combate y Disparo, con controles de modificadores adaptados a Android y pruebas automatizadas.
 - El selector de BS en Disparo tiene separación superior para evitar solaparse con la barra de pestañas.
 - La calculadora de Herir usa 4+, 3+ o 2+ cuando la F iguala, supera en uno o supera en más de un punto a la R.
+- `combat_screen` permite acumular bonos para ambos bandos, calcular el vencedor y consultar los rangos de Liderazgo.
+- En `combat_screen`, los bonos únicos se controlan con checkbox y `Reiniciar` limpia los dos contadores.
+- En `combat_screen`, Heridas sin Salvar es un botón acumulable y aparece junto a Bono por Filas y Otros debajo de los checkboxes.
+- Los rangos mostrados de Liderazgo están limitados a tiradas naturales entre 2 y 12.
 
 ## Reglas de trabajo
 

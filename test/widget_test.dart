@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:old_world_companion/main.dart';
+import 'package:old_world_companion/screens/combat_screen.dart';
 import 'package:old_world_companion/screens/rolls_screen.dart';
 
 void main() {
@@ -34,6 +35,67 @@ void main() {
     expect(find.text('Calcular Resultados de Combate'), findsOneWidget);
     expect(find.text('Atacante'), findsOneWidget);
     expect(find.text('Defensor'), findsOneWidget);
+  });
+
+  testWidgets('los bonos únicos son checkboxes y se pueden reiniciar', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const OldWorldCompanionApp());
+
+    await tester.tap(find.text('Resultados de Combate'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(CheckboxListTile), findsNWidgets(8));
+    expect(find.text('Reiniciar'), findsOneWidget);
+
+    final firstCheckbox = find.byType(CheckboxListTile).first;
+    await tester.tap(firstCheckbox);
+    await tester.pump();
+    expect(tester.widget<CheckboxListTile>(firstCheckbox).value, isTrue);
+
+    await tester.drag(find.byType(Scrollable), const Offset(0, -1000));
+    await tester.pump();
+    await tester.tap(find.text('Reiniciar'));
+    await tester.pump();
+    expect(tester.widget<CheckboxListTile>(firstCheckbox).value, isFalse);
+  });
+
+  test('calcula el vencedor, la diferencia y los empates', () {
+    final attackerWins = calculateCombatResult(5, 2);
+    expect(attackerWins.winner, CombatWinner.attacker);
+    expect(attackerWins.difference, 3);
+
+    final defenderWins = calculateCombatResult(2, 5);
+    expect(defenderWins.winner, CombatWinner.defender);
+    expect(defenderWins.difference, 3);
+
+    final draw = calculateCombatResult(4, 4);
+    expect(draw.winner, CombatWinner.draw);
+    expect(draw.difference, 0);
+  });
+
+  test('calcula los rangos de Liderazgo', () {
+    final targets = calculateLeadershipTargets(leadership: 8, difference: 2);
+
+    expect(targets.groundHeld, '2–6');
+    expect(targets.orderlyRetreat, '7–8');
+    expect(targets.flee, '9–12');
+
+    final lowLeadership = calculateLeadershipTargets(
+      leadership: 1,
+      difference: 0,
+    );
+    expect(lowLeadership.groundHeld, 'Imposible');
+    expect(lowLeadership.orderlyRetreat, 'Imposible');
+    expect(lowLeadership.flee, '2–12');
+
+    final highLeadership = calculateLeadershipTargets(
+      leadership: 20,
+      difference: 2,
+    );
+    expect(highLeadership.groundHeld, '2–12');
+    expect(highLeadership.orderlyRetreat, 'Imposible');
+    expect(highLeadership.flee, 'Imposible');
   });
 
   testWidgets('la pantalla de impactos permite elegir disparo', (

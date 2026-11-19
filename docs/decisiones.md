@@ -22,6 +22,10 @@
 - Las tiradas objetivo de Impactar y Herir nunca podrán ser inferiores a 2+.
 - La selección Combate/Disparo se mostrará en la parte inferior de Impactar mediante botones separados.
 - Los modificadores adicionales de Disparo se controlarán con botones `+1` y `-1`; `Reiniciar` eliminará todos los modificadores.
+- En Resultados de Combate, Estandarte, Estandarte de Batalla, Formación Cerrada e Infantería Concentrada son bonos únicos con checkbox; Heridas sin Salvar, Bono por Filas y Otros son acumulables y aparecen debajo.
+- El botón Reiniciar de Resultados de Combate devuelve a cero todos los bonos de ambos bandos.
+- Un empate se mostrará como `Empate` y no calculará Liderazgo.
+- Los rangos de Liderazgo se mostrarán como Cede Terreno (`tirada + diferencia ≤ Liderazgo`), Retirada en Buen Orden (supera ese límite sin superar el Liderazgo) y Huida (tirada natural superior al Liderazgo), siempre limitados a resultados naturales entre 2 y 12.
 
 ## Pendientes
 
@@ -37,4 +41,4 @@
 - No se han fijado versiones de Flutter, Dart, Android SDK ni versión mínima de Android.
 - No se ha concretado el formato de la fecha de las partidas ni si se podrá editar o eliminar información guardada.
 - No se han definido las licencias concretas de las dependencias ni el contenido propio que se utilizará para los datos de referencia.
-- La lógica y la interfaz de Impactar/Herir, incluyendo Combate y Disparo, están implementadas y probadas; la lógica del resto de calculadoras, la persistencia de preferencias, los formularios de magos y recordatorios, y el bloqueo del modo Juego se incorporarán en pasos posteriores.
+- La lógica y la interfaz de Impactar/Herir, incluyendo Combate y Disparo, y la pantalla de Resultados de Combate están implementadas y probadas; la lógica del resto de calculadoras, la persistencia de preferencias, los formularios de magos y recordatorios, y el bloqueo del modo Juego se incorporarán en pasos posteriores.
