@@ -48,6 +48,9 @@ El MVP funcionará sin conexión y guardará los datos en el dispositivo.
 - `flutter analyze` y `flutter test` pasan tras sustituir la prueba del contador por pruebas del menú y la navegación inicial.
 - Las decisiones pendientes están registradas en `docs/decisiones.md`.
 - La interfaz está organizada en `lib/screens/`, `lib/theme/`, `lib/widgets/` y `lib/app.dart`; `lib/main.dart` contiene únicamente el arranque de Flutter.
+- La pantalla `rolls_screen` calcula y muestra las tiradas objetivo de Impactar y Herir, incluyendo Combate y Disparo, con controles de modificadores adaptados a Android y pruebas automatizadas.
+- El selector de BS en Disparo tiene separación superior para evitar solaparse con la barra de pestañas.
+- La calculadora de Herir usa 4+, 3+ o 2+ cuando la F iguala, supera en uno o supera en más de un punto a la R.
 
 ## Reglas de trabajo
 

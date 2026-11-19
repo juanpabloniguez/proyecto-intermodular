@@ -16,13 +16,19 @@
 - La primera estructura de interfaz seguirá `Pantallas.md`: menú con seis destinos, navegación interior con retorno al menú y cinco apariencias (`Reikland`, `Middenland`, `Stirland`, `Nuln` y `Talabecland`).
 - La implementación visual inicial usará los colores semánticos definidos en `Pantallas.md`; Reikland será la apariencia inicial y el idioma disponible será español.
 - La interfaz se organizará en `lib/screens/` para las pantallas, `lib/theme/` para apariencias y estilos, `lib/widgets/` para componentes reutilizables y `lib/app.dart` para la configuración raíz de Flutter; `lib/main.dart` contendrá únicamente el arranque de la aplicación.
+- En la calculadora de Herir, si la F atacante iguala la R defensora, la tirada objetivo será 4+; con un punto más será 3+ y con más de un punto será 2+.
+- En la calculadora de Herir, cada punto de diferencia desfavorable suma 1 a 4+ hasta 6+; con una diferencia de 6 o más la herida es imposible.
+- En Impactar se podrá elegir entre Combate y Disparo; los modificadores de Disparo se aplicarán solo a la primera tirada cuando la BS sea 6 o superior.
+- Las tiradas objetivo de Impactar y Herir nunca podrán ser inferiores a 2+.
+- La selección Combate/Disparo se mostrará en la parte inferior de Impactar mediante botones separados.
+- Los modificadores adicionales de Disparo se controlarán con botones `+1` y `-1`; `Reiniciar` eliminará todos los modificadores.
 
 ## Pendientes
 
 - La propuesta indica que el gestor de partidas queda fuera del MVP, pero el diseño lo incluye dentro de «Fases, recordatorios y partidas guardadas». Se adopta el diseño, pero conviene confirmar y documentar esta decisión con el tutor si procede.
 - No se ha elegido la biblioteca concreta de Flutter para acceder a SQLite.
 - No se han definido el esquema completo de tablas, claves, relaciones ni estrategia de migraciones de SQLite.
-- No se han especificado las fórmulas, límites y casos especiales exactos de las calculadoras.
+- No se han especificado las fórmulas, límites y casos especiales exactos del resto de calculadoras.
 - No se han definido los valores predeterminados de puntos de victoria.
 - No se han definido las fases ni los pasos predeterminados concretos de la checklist.
 - No se ha decidido si un hechizo puede pertenecer a más de un saber ni el catálogo inicial de saberes y hechizos.
@@ -31,4 +37,4 @@
 - No se han fijado versiones de Flutter, Dart, Android SDK ni versión mínima de Android.
 - No se ha concretado el formato de la fecha de las partidas ni si se podrá editar o eliminar información guardada.
 - No se han definido las licencias concretas de las dependencias ni el contenido propio que se utilizará para los datos de referencia.
-- La lógica completa de calculadoras, persistencia de preferencias, formularios de magos y recordatorios, y el bloqueo del modo Juego se incorporará en pasos posteriores.
+- La lógica y la interfaz de Impactar/Herir, incluyendo Combate y Disparo, están implementadas y probadas; la lógica del resto de calculadoras, la persistencia de preferencias, los formularios de magos y recordatorios, y el bloqueo del modo Juego se incorporarán en pasos posteriores.
