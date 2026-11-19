@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../theme/app_appearance.dart';
 import '../widgets/base_screen.dart';
 
-class PreferencesScreen extends StatelessWidget {
+class PreferencesScreen extends StatefulWidget {
   const PreferencesScreen({
     super.key,
     required this.appearance,
@@ -12,6 +12,27 @@ class PreferencesScreen extends StatelessWidget {
 
   final AppAppearance appearance;
   final ValueChanged<AppAppearance> onAppearanceChanged;
+
+  @override
+  State<PreferencesScreen> createState() => _PreferencesScreenState();
+}
+
+class _PreferencesScreenState extends State<PreferencesScreen> {
+  late AppAppearance _selectedAppearance;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedAppearance = widget.appearance;
+  }
+
+  @override
+  void didUpdateWidget(covariant PreferencesScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.appearance != widget.appearance) {
+      _selectedAppearance = widget.appearance;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +52,12 @@ class PreferencesScreen extends StatelessWidget {
           Text('Apariencia', style: Theme.of(context).textTheme.titleLarge),
           const SizedBox(height: 8),
           RadioGroup<AppAppearance>(
-            groupValue: appearance,
+            groupValue: _selectedAppearance,
             onChanged: (value) {
-              if (value != null) onAppearanceChanged(value);
+              if (value != null) {
+                setState(() => _selectedAppearance = value);
+                widget.onAppearanceChanged(value);
+              }
             },
             child: Column(
               children: [

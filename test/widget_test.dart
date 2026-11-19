@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:old_world_companion/main.dart';
 import 'package:old_world_companion/screens/combat_screen.dart';
+import 'package:old_world_companion/theme/app_appearance.dart';
 import 'package:old_world_companion/screens/rolls_screen.dart';
 
 void main() {
@@ -35,6 +36,29 @@ void main() {
     expect(find.text('Calcular Resultados de Combate'), findsOneWidget);
     expect(find.text('Atacante'), findsOneWidget);
     expect(find.text('Defensor'), findsOneWidget);
+  });
+
+  testWidgets('el selector de apariencia se actualiza al elegir un color', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const OldWorldCompanionApp());
+
+    await tester.drag(find.byType(Scrollable), const Offset(0, -500));
+    await tester.pump();
+    await tester.tap(find.text('Preferencias'));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Middenland'));
+    await tester.pump();
+
+    final theme = tester.widget<MaterialApp>(find.byType(MaterialApp)).theme;
+    expect(theme?.colorScheme.primary, AppAppearance.middenland.accent);
+    final selectedRadio = tester.widget<Radio<AppAppearance>>(
+      find.byType(Radio<AppAppearance>).at(1),
+    );
+    // ignore: deprecated_member_use
+    final selectedAppearance = selectedRadio.groupValue;
+    expect(selectedAppearance, AppAppearance.middenland);
   });
 
   testWidgets('los bonos únicos son checkboxes y se pueden reiniciar', (

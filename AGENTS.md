@@ -55,6 +55,7 @@ El MVP funcionará sin conexión y guardará los datos en el dispositivo.
 - En `combat_screen`, los bonos únicos se controlan con checkbox y `Reiniciar` limpia los dos contadores.
 - En `combat_screen`, Heridas sin Salvar es un botón acumulable y aparece junto a Bono por Filas y Otros debajo de los checkboxes.
 - Los rangos mostrados de Liderazgo están limitados a tiradas naturales entre 2 y 12.
+- `preferences_screen` mantiene sincronizado el selector de apariencia con el cambio de tema mientras la pantalla está abierta.
 
 ## Reglas de trabajo
 
